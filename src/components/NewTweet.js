@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; // gives access to dispatch
 import { handleAddTweet } from "../actions/tweets";
+import { Redirect } from "react-router-dom";
 
 class NewTweet extends Component {
   state = {
     text: "",
   };
+
   handleChange = (e) => {
     const text = e.target.value;
 
@@ -13,6 +15,7 @@ class NewTweet extends Component {
       text,
     }));
   };
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,13 +26,18 @@ class NewTweet extends Component {
 
     this.setState(() => ({
       text: "",
+      toHome: id ? false : true,
     }));
   };
+
   render() {
-    const { text } = this.state;
+    const { text, toHome } = this.state;
 
     {
       /* todo: Redirect to / if submitted */
+    }
+    if (toHome === true) {
+      return <Redirect to="/" />;
     }
 
     const tweetLeft = 280 - text.length;
