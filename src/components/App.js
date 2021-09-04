@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handelInitialData } from "../actions/shared";
 import Dashboad from "./Dashboad";
+import LoadingBar from "react-redux-loading";
 
 class App extends Component {
   componentDidMount() {
@@ -10,6 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <LoadingBar />
         {this.props.loading === true ? (
           <h1 className="center">Loading ...</h1>
         ) : (

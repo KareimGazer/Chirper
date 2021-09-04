@@ -8,7 +8,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h3 className="center">Time Line</h3>
-        <ul className="dashboard-list center">
+        <ul className="dashboard-list">
           {this.props.tweetsIds.map((tweetId) => (
             <li key={tweetId}>
               <Tweet id={tweetId}></Tweet>
